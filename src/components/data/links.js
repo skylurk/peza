@@ -1,7 +1,10 @@
-import { AiFillSecurityScan, AiOutlineSecurityScan, AiOutlineShoppingCart } from "react-icons/ai";
-import { FiUser, FiUserPlus, FiShoppingBag } from "react-icons/fi";
-import { GiAirplane, GiMoebiusTriangle } from "react-icons/gi";
+import { FiUser  } from "react-icons/fi";
+import { MdForum, MdOutlineDashboardCustomize } from "react-icons/md";
+import { RiChatNewFill } from "react-icons/ri";
+import { FaPoll } from "react-icons/fa";
+import { VscFeedback } from "react-icons/vsc";
 import React from 'react'
+
 
 export const links = [
     {
@@ -10,76 +13,55 @@ export const links = [
             {
             name: 'Dashboard',
             url: 'dashboard',
-            icon: <FiShoppingBag />,
+            icon: <MdOutlineDashboardCustomize />,
             },
         ],
     },
     {
-        title: 'Users',
+        title: 'Comments',
         links: [
             {
-                name: 'User List',
-                url: 'users',
+                name: 'Comments',
+                url: 'comments',
                 icon: <FiUser />
             }, 
-            // {
-            //     name: 'Add User',
-            //     url: 'adduser',
-            //     icon: <FiUserPlus />
-            // }
-
-
         ]
     }, 
     {
-        title: 'Handovers',
+        title: 'Forums',
         links: [
           {
-            name: 'Handover Items',
-            url: 'handoveritems',
-            icon: <AiOutlineShoppingCart />,
+            name: 'Forums',
+            url: 'forums',
+            icon: <MdForum />,
           },
           {
-            name: 'Handovers',
-            url: 'handovers',
-            icon: <AiOutlineShoppingCart />,
+            name: 'Create Forum',
+            url: 'createforums',
+            icon: <RiChatNewFill />,
           },
 
         ],
     },
     {
-        title: 'Assessments',
+        title: 'Polls',
         links: [
             {
-                name: 'Preflight Assessments', 
-                url: 'preflights',
-                icon: <AiFillSecurityScan />
-            }, 
-            // {
-            //     name: 'PRA Items',
-            //     url: 'preflightriskassessmentitems',
-            //     icon: <AiOutlineSecurityScan />
-            // }
-        ]
-    },
-    {
-        title: 'Aircraft',
-        links: [
-            {
-                name: 'Aircraft', 
-                url: 'aircraft',
-                icon: <GiAirplane />
+                name: 'Create Poll', 
+                url: 'createpoll',
+                icon: <FaPoll />
             }, 
         ]
     },
     {
-        title: 'Station',
+        title: 'Feedback',
         links: [
             {
-                name: 'Stations', 
-                url: 'stations',
-                icon: <GiMoebiusTriangle />
+                name: 'Feedback', 
+                url: 'feedback',
+                icon: <VscFeedback />
             }, 
         ]
     },
+
 ]
