@@ -35,6 +35,7 @@ const Home = () => {
 
           <div>
             <Routes>
+              <Route path='/' element={<Dashboard /> } />
               <Route path='/dashboard' element={<Dashboard /> } />
               <Route path='/forums' element={<Forums /> } />
               <Route path='/feedback' element={<Feedback /> } />
