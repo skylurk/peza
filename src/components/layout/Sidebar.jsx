@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { SiShopware } from 'react-icons/si';
 import { Link, NavLink } from 'react-router-dom';
-import { links } from '../data/links'
+import { links, orderLinks } from '../data/links'
+
 
 const Sidebar = () => {
 
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-gray-300 text-md m-2 text-white bg-sky-400 text-black';
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md  dark:text-gray-700 dark:hover:text-black hover:bg-light-gray m-2';
+
+  // const [adminLinks, setAdminLinks] = useState([])
+
+  const user = {
+    name: 'Rehema',  
+    role: 'admin'
+  }
+
+  console.log(links)
+  console.log(orderLinks)
+
+  const userLinks = orderLinks.filter(orderLink => orderLink.role === 'user');
+  console.log(userLinks)
 
 
   return (
@@ -17,28 +31,44 @@ const Sidebar = () => {
           </Link>
         </div>
         <div className="mt-10">
-        {
-              links.map((item) => (
-                <div key={item.title}>
-                  <p className="text-grey-400 m-3 mt-4 uppercase">
-                    {item.title}
-                  </p>
-                  {
-                    item.links.map((link) => (  
-                      <NavLink to={`/${link.url}`}
-                      key = {link.name} 
-                      className={({isActive}) =>  
-                      isActive ? activeLink : normalLink
-                    
-                    }>
-                      {link.icon}
-                      <span className='capitalize'> { link.name } </span>
-                    </NavLink>
-                    ))
-                  }
-                </div>
-              ))
+
+          {
+            (user.role === 'admin') ? 
+            <>
+            {
+                orderLinks.map((link) => ( 
+                  <NavLink to={`/${link.url}`}
+                  key = {link.name} 
+                  className={({isActive}) =>  
+                  isActive ? activeLink : normalLink
+                
+                }>
+                  {link.icon}
+                  <span className='capitalize'> { link.name } </span>
+    
+                  </NavLink>
+                ))
             }
+            </> 
+            : 
+            <>
+            {
+                userLinks.map((link) => ( 
+                  <NavLink to={`/${link.url}`}
+                  key = {link.name} 
+                  className={({isActive}) =>  
+                  isActive ? activeLink : normalLink
+                
+                }>
+                  {link.icon}
+                  <span className='capitalize'> { link.name } </span>
+    
+                  </NavLink>
+                ))
+            }
+            </>
+          }
+
         </div>
     </div>
   )
